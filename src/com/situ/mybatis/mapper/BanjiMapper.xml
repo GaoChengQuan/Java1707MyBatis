@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="banji">
+	  <!-- 根据id查询学生对象 -->
+	  <select id="findById" parameterType="int" resultType="Banji">
+	  		select * from banji where id=#{id}
+	  </select>
+	  
+	  <!-- <select id="findByName" parameterType="java.lang.String" resultType="com.situ.mybatis.pojo.Student">
+	  		select * from student where name like '%${value}%'
+	  </select>
+	  
+	  <delete id="deleteById" parameterType="java.lang.Integer">
+	  		delete from student where id=#{id}
+	  </delete>
+	  
+	  There is no getter for property named 'ideee' in 'class com.situ.mybatis.pojo.Student'
+	   <delete id="delete" parameterType="com.situ.mybatis.pojo.Student">
+	  		delete from student where id=#{id}
+	  </delete>
+	  
+	   <insert id="add" parameterType="com.situ.mybatis.pojo.Student">
+	   		insert into student(name,age) values(#{name},#{age})
+	   </insert>
+	  
+	  findAll理论上返回值List<Student> ,但是只要写List里面的类型就可以了
+	  <select id="findAll" resultType="com.situ.mybatis.pojo.Student">
+	  		select * from student
+	  </select> -->
+  </mapper>

@@ -13,6 +13,7 @@ import org.junit.Test;
 import com.situ.mybatis.pojo.Student;
 
 public class MyBatisTest {
+	
 	@Test
 	public void testFindByName() throws IOException {
 		//加载核心配置文件
@@ -38,7 +39,7 @@ public class MyBatisTest {
 		//创建SqlSession
 		SqlSession sqlSession = factory.openSession();
 		//执行sql语句
-		Student student = sqlSession.selectOne("student.findById", 25);
+		Student student = sqlSession.selectOne("student.findById", 27);
 		System.out.println(student);
 		sqlSession.close();
 	}
