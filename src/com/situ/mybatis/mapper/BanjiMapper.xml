@@ -3,7 +3,22 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-  <mapper namespace="banji">
+  <mapper namespace="com.situ.mybatis.mapper.BanjiMapper">
+  	<resultMap type="Banji" id="banjiCourseMap">
+  		<id column="id" property="id"/>
+  		<result column="name" property="name"/>
+  		<collection property="courseList" ofType="Course">
+  			<id column="course_id" property="id"/>
+  			<result column="course_name" property="name"/>
+  		</collection>
+  	</resultMap>
+  	<select id="findBanjiCourseInfoById" parameterType="int" resultMap="banjiCourseMap">
+  		SELECT b.id,b.name,c.id as course_id,c.name as course_name 
+		FROM banji AS b LEFT JOIN banji_course AS bc ON b.id=bc.banji_id
+		LEFT JOIN course AS c ON bc.course_id=c.id WHERE b.id=#{id};
+  	</select>
+  	
+  
 	  <!-- 根据id查询学生对象 -->
 	  <select id="findById" parameterType="int" resultType="Banji">
 	  		select * from banji where id=#{id}

@@ -15,6 +15,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.situ.mybatis.mapper.StudentMapper;
+import com.situ.mybatis.pojo.Banji;
+import com.situ.mybatis.pojo.Course;
 import com.situ.mybatis.pojo.Student;
 import com.situ.mybatis.vo.SearchVO;
 
@@ -165,6 +167,41 @@ public class StudentDaoMapperTest {
 		List<Student> listResult = studentDao.findBySearchVO(searchVO);
 		for (Student student : listResult) {
 			System.out.println(student);
+		}
+	}
+	
+	@Test
+	public void testFindStudentInfos() {
+		//IStudentDao studentDao = new StudentDaoImpl();
+		SqlSession session = factory.openSession();
+		StudentMapper studentDao = session.getMapper(StudentMapper.class);
+		List<Student> listResult = studentDao.findStudentInfos();
+		for (Student student : listResult) {
+			System.out.println(student);
+		}
+	}
+	
+	@Test
+	public void testFindBanjiInfo() {
+		//IStudentDao studentDao = new StudentDaoImpl();
+		SqlSession session = factory.openSession();
+		StudentMapper studentDao = session.getMapper(StudentMapper.class);
+		Banji banji = studentDao.findBanjiInfo(1);
+		System.out.println(banji);
+	}
+	
+	@Test
+	public void testFindStudentInfoById() {
+		//IStudentDao studentDao = new StudentDaoImpl();
+		SqlSession session = factory.openSession();
+		StudentMapper studentDao = session.getMapper(StudentMapper.class);
+		Student student = studentDao.findStudentInfoById(54);
+		System.out.println("学生名字：" + student.getName());
+		Banji banji = student.getBanji();
+		System.out.println("学生所在班级:" + banji.getName());
+		List<Course> list = banji.getCourseList();
+		for (Course course : list) {
+			System.out.println(course);
 		}
 	}
 	

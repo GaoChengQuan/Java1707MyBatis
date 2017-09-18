@@ -11,6 +11,7 @@ public class Student implements Serializable {
 	private String gender;
 	private String address;
 	private Date birthday;
+	private Banji banji;
 
 	public Student() {
 		super();
@@ -34,8 +35,25 @@ public class Student implements Serializable {
 		this.address = address;
 		this.birthday = birthday;
 	}
-	
-	
+
+	public Student(Integer id, String name, Integer age, String gender, String address, Date birthday, Banji banji) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.age = age;
+		this.gender = gender;
+		this.address = address;
+		this.birthday = birthday;
+		this.banji = banji;
+	}
+
+	public Banji getBanji() {
+		return banji;
+	}
+
+	public void setBanji(Banji banji) {
+		this.banji = banji;
+	}
 
 	public Integer getId() {
 		return id;
@@ -88,7 +106,7 @@ public class Student implements Serializable {
 	@Override
 	public String toString() {
 		return "Student [id=" + id + ", name=" + name + ", age=" + age + ", gender=" + gender + ", address=" + address
-				+ ", birthday=" + birthday + "]";
+				+ ", birthday=" + birthday + ", banji=" + banji + "]";
 	}
 
 }

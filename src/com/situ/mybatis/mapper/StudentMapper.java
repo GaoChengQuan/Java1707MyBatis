@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Param;
 import org.junit.validator.PublicClassValidator;
 
+import com.situ.mybatis.pojo.Banji;
 import com.situ.mybatis.pojo.Student;
 import com.situ.mybatis.vo.SearchVO;
 
@@ -25,4 +26,9 @@ public interface StudentMapper {
 	public abstract List<Student> findByIdList(List<Integer> list);
 	public abstract List<Student> findBySearchVO(SearchVO searchVO);
 	
+	
+	public abstract List<Student> findStudentInfos();
+	public abstract Banji findBanjiInfo(int id);
+	
+	public abstract Student findStudentInfoById(int id);
 }
